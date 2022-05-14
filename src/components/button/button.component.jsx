@@ -15,7 +15,7 @@ export const BUTTON_TYPES = {
 const Button = ({ type }) => {
   switch (type) {
     case BUTTON_TYPES.NEW_NOTE:
-      return <button>New Note</button>;
+      return <button>+ New Note</button>;
     case BUTTON_TYPES.DISPLAY_MODE:
       return (
         <div>
