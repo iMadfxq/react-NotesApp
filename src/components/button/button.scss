@@ -1,0 +1,70 @@
+$soft_background_gray: rgb(237, 237, 237);
+$soft_title_gray: rgba(37, 37, 37, 0.494);
+
+
+button {
+  cursor: pointer;
+  border: none;
+  transition: 400ms;
+}
+
+.NEW_NOTE {
+  width: 100px;
+  height: 30px;
+  font-size: 1.6rem;
+  border-radius: 20px;
+  background-color: #cef5ff;
+
+  &:hover {
+    background-color: #e2f9ff;
+    transform: scale(1.05);
+  }
+}
+
+.DISPLAY_MODE {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.35rem;
+  background-color: $soft_background_gray;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 15px;
+  color: $soft_title_gray;
+
+  button {
+    margin-top: 5px;
+    width: 40px;
+    height: 40px;
+    color: rgba(37, 37, 37, 0.494);
+    font-size: 3rem;
+    background-color: $soft_background_gray;
+    border: 1px solid $soft_title_gray;
+
+    &:last-child {
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+    &:first-child {
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+  }
+}
+
+.SMALL_DELETE, .SMALL_EDIT, .SMALL_ARCHIVE {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+}
+.SMALL_DELETE {
+  background-color: rgb(185, 0, 0);
+}
+.SMALL_EDIT {
+  background-color: rgb(0, 198, 0);
+}
+.SMALL_ARCHIVE {
+  background-color: rgb(220, 220, 0);
+}

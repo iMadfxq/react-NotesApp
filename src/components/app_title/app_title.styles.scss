@@ -1,0 +1,11 @@
+.header__title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #61dbfb;
+
+  h1 {
+    font-size: 2.2rem;
+    cursor: pointer;
+  }
+}

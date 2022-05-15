@@ -15,29 +15,32 @@ export const BUTTON_TYPES = {
 const Button = ({ type }) => {
   switch (type) {
     case BUTTON_TYPES.NEW_NOTE:
-      return <button>+ New Note</button>;
+      return <button className="NEW_NOTE">+ New Note</button>;
     case BUTTON_TYPES.DISPLAY_MODE:
       return (
-        <div>
-          <button>squares</button>
-          <button>columns</button>
+        <div className="DISPLAY_MODE">
+          <div>Display Mode</div>
+          <div>
+            <button>⍠</button>
+            <button>⌸</button>
+          </div>
         </div>
       );
     case BUTTON_TYPES.DONE:
-      return <button>&#x2713; Done</button>;
+      return <button className="DONE">&#x2713; Done</button>;
     case BUTTON_TYPES.HOME:
-      return <button>&#x21aa; Home</button>;
+      return <button className="HOME">&#x21aa; Home</button>;
     case BUTTON_TYPES.EDIT:
-      return <button>✏️ Edit</button>;
+      return <button className="EDIT">✏️ Edit</button>;
     case BUTTON_TYPES.CLOSE:
-      return <button>&#x2715;</button>;
-      case BUTTON_TYPES.SMALL_DELETE:
-        return <button>🗑</button>;
-        case BUTTON_TYPES.SMALL_EDIT:
-        return <button>✏️</button>;
-        case BUTTON_TYPES.SMALL_ARCHIVE:
-        return <button>📁</button>;
-  
+      return <button className="CLOSE">&#x2715;</button>;
+    case BUTTON_TYPES.SMALL_DELETE:
+      return <button className="SMALL_DELETE">🗑</button>;
+    case BUTTON_TYPES.SMALL_EDIT:
+      return <button className="SMALL_EDIT">✏️</button>;
+    case BUTTON_TYPES.SMALL_ARCHIVE:
+      return <button className="SMALL_ARCHIVE">📁</button>;
+
     default:
       throw new Error("Your button had no type, or an unrecognized type.");
   }
