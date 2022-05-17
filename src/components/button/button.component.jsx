@@ -10,6 +10,7 @@ export const BUTTON_TYPES = {
   SMALL_DELETE: "SMALL_DELETE",
   SMALL_EDIT: "SMALL_EDIT",
   SMALL_ARCHIVE: "SMALL_ARCHIVE",
+  RESTORE_ALL: "RESTORE_ALL",
 };
 
 const Button = ({ type }) => {
@@ -40,7 +41,8 @@ const Button = ({ type }) => {
       return <button className="SMALL_EDIT">✏️</button>;
     case BUTTON_TYPES.SMALL_ARCHIVE:
       return <button className="SMALL_ARCHIVE">📁</button>;
-
+    case BUTTON_TYPES.RESTORE_ALL:
+      return <button className="RESTORE_ALL">Restore All</button>;
     default:
       throw new Error("Your button had no type, or an unrecognized type.");
   }
