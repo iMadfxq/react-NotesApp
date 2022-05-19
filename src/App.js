@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 
 import './App.scss';
 
-import Button from './components/button/button.component';
 import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 
