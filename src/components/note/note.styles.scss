@@ -18,12 +18,19 @@ textarea {
 
   &__header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     background-color: rgb(47, 47, 47);
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
-    padding: 6px 8px;
+    padding: 6px 8px 6px 18px;
+
+    h3 {
+      color: white;
+      font-size: 1.8rem;
+      overflow-x: hidden;
+      max-width: 140px;
+    }
 
     button {
       margin: 0px 4px;
@@ -32,8 +39,7 @@ textarea {
 
   &__textarea {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     height: 88%;
     user-select: none;
     padding: 10px;
@@ -92,5 +98,4 @@ textarea {
       user-select: none;
     }
   }
-
 }

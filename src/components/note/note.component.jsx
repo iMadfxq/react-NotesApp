@@ -8,18 +8,21 @@ export const NOTE_STYLES = {
   SQUARE_STYLE: "SQUARE_STYLE",
 };
 
-const Note = ({ type }) => {
+const Note = ({ type, content, title }) => {
   switch (type) {
     case NOTE_STYLES.SQUARE_STYLE:
       return (
         <article className="squareNote">
           <div className="squareNote__header">
-            <Button type={BUTTON_TYPES.SMALL_EDIT} />
-            <Button type={BUTTON_TYPES.SMALL_ARCHIVE} />
-            <Button type={BUTTON_TYPES.SMALL_DELETE} />
+            <h3>{title}</h3>
+            <div>
+              <Button type={BUTTON_TYPES.SMALL_EDIT} />
+              <Button type={BUTTON_TYPES.SMALL_ARCHIVE} />
+              <Button type={BUTTON_TYPES.SMALL_DELETE} />
+            </div>
           </div>
           <div className="squareNote__textarea">
-            <textarea disabled ></textarea>
+            <textarea value={content} disabled></textarea>
           </div>
         </article>
       );
@@ -37,7 +40,9 @@ const Note = ({ type }) => {
         </article>
       );
     default:
-      throw new Error("style type of note unrecognized or not present, pass it as a prop")
+      throw new Error(
+        "style type of note unrecognized or not present, pass it as a prop"
+      );
   }
 };
 
