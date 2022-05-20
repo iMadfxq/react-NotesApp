@@ -18,6 +18,7 @@ textarea {
 
   &__header {
     display: flex;
+    height: 40px;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(47, 47, 47);
@@ -28,7 +29,8 @@ textarea {
     h3 {
       color: white;
       font-size: 1.8rem;
-      overflow-x: hidden;
+      overflow: hidden;
+      height: 2rem;
       max-width: 140px;
     }
 

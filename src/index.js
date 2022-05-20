@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 
 import "./index.scss";
 
+import { closeModal } from "./utils/open_close_MODALS";
+
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
@@ -19,3 +21,13 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+
+const rootHTML = document.getElementById("root")
+
+rootHTML.addEventListener('click', (e) => {
+  e.stopPropagation()
+  const noteFormWrapper = document.querySelector('.wrapper')
+  if (e.target === noteFormWrapper) {
+    closeModal(noteFormWrapper)
+  }
+})

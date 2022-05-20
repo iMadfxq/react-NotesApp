@@ -1,13 +1,15 @@
 import "./app_title.styles.scss";
 
+import { openModal } from "../../utils/open_close_MODALS.js";
+
 import Button from "../button/button.component";
 import { BUTTON_TYPES } from "../button/button.component";
 
 const AppTitle = () => {
   const handleNewNoteClick = () => {
-    const noteForm = document.querySelector(".wrapper");
-    noteForm.style.zIndex = '3'
-    noteForm.style.opacity = "1";
+    const noteFormWrapper = document.querySelector(".wrapper");
+    openModal(noteFormWrapper)
+    console.dir(noteFormWrapper)
   };
 
   return (

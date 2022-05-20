@@ -1,7 +1,9 @@
 import "./note_creator.styles.scss";
 
-import {ACTION_TYPES} from '../../store/store'
+import { ACTION_TYPES } from "../../store/store";
 import { useDispatch } from "react-redux";
+
+import { closeModal } from "../../utils/open_close_MODALS.js";
 
 import Button from "../button/button.component";
 import { BUTTON_TYPES } from "../button/button.component";
@@ -18,35 +20,35 @@ const noteCreatorFn = (title, content) => {
 
 
 const NoteCreator = () => {
-
-const dispatch = useDispatch()
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const note = noteCreatorFn(e.target[1].value, e.target[2].value)
-    dispatch({type: ACTION_TYPES.NEW_NOTE, payload: note})
-  }
+  const dispatch = useDispatch();
   
+  const handleSubmit = (e) => {
+    const noteFormWrapper = document.querySelector(".wrapper");
+    e.preventDefault();
+    const note = noteCreatorFn(e.target[1].value, e.target[2].value);
+    dispatch({ type: ACTION_TYPES.NEW_NOTE, payload: note });
+    e.target.reset();
+    closeModal(noteFormWrapper);
+  };
+
   const handleClick = (e) => {
-    e.stopPropagation()
-    const noteForm = document.querySelector(".wrapper");
-    console.log(e.target);
-    if (
-      e.target === document.querySelector(".CLOSE") 
-    ) {
-      noteForm.style.opacity = "0";
-      setTimeout(() => {
-        //to make the transition smoother
-        noteForm.style.zIndex = "1";
-      }, 400);
+    e.stopPropagation();
+    const noteFormWrapper = document.querySelector(".wrapper");
+    if (e.target === document.querySelector(".CLOSE")) {
+      closeModal(noteFormWrapper);
     }
   };
+
   return (
     <div className="wrapper">
-      <form className="note--creator" onClick={handleClick} onSubmit={handleSubmit}>
+      <form
+        className="note--creator"
+        onClick={handleClick}
+        onSubmit={handleSubmit}
+      >
         <Button type={BUTTON_TYPES.CLOSE} />
         <input type="text" placeholder="Title" required />
-        <textarea placeholder="Type your note..."></textarea>
+        <textarea placeholder="Type your note..." required></textarea>
         <Button type={BUTTON_TYPES.DONE} />
       </form>
     </div>
