@@ -3,4 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .DISPLAY_MODE {
+
+    .currentMode {
+      background-color: rgb(23, 90, 116);
+      color: white;
+    }
+  }
 }

@@ -33,6 +33,10 @@ button {
   border-radius: 15px;
   color: $soft_title_gray;
 
+  span {
+    color: black;
+  }
+
   button {
     margin-top: 5px;
     width: 70px;

@@ -13,17 +13,17 @@ export const BUTTON_TYPES = {
   RESTORE_ALL: "RESTORE_ALL",
 };
 
-const Button = ({ type }) => {
+const Button = ({ type, currentMode }) => {
   switch (type) {
     case BUTTON_TYPES.NEW_NOTE:
       return <button className="NEW_NOTE" type="button">+ New Note</button>;
     case BUTTON_TYPES.DISPLAY_MODE:
       return (
         <div className="DISPLAY_MODE">
-          <div>Display Mode</div>
+          <span>Display Mode</span>
           <div>
-            <button type="button">⍠</button>
-            <button type="button">⌸</button>
+            <button type="button" id="display-square" className={currentMode === 'display-square' ? 'currentMode' : ''} >⍠</button>
+            <button type="button" id="display-list" className={currentMode === 'display-list' ? 'currentMode' : ''}>⌸</button>
           </div>
         </div>
       );

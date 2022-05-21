@@ -3,11 +3,12 @@ import { createStore } from "redux";
 export const ACTION_TYPES = {
   TAB_CHANGE: "TAB_CHANGE",
   NEW_NOTE: "NEW_NOTE",
+  DISPLAY_MODE_CHANGE: "DISPLAY_MODE_CHANGE",
 };
 
 const INITIAL_STATE = {
   currentTab: "main-tab",
-  displayMode: "square",
+  displayMode: "display-square",
   creatingNote: false,
   notes: [],
 };
@@ -17,7 +18,9 @@ let reducerFn = (state = INITIAL_STATE, action) => {
     case ACTION_TYPES.TAB_CHANGE:
       return { ...state, currentTab: action.payload };
     case ACTION_TYPES.NEW_NOTE:
-      return {...state, notes: [...state.notes, action.payload]}
+      return { ...state, notes: [...state.notes, action.payload] };
+    case ACTION_TYPES.DISPLAY_MODE_CHANGE:
+      return { ...state, displayMode: action.payload };
     default:
       return state;
   }
