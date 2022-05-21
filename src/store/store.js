@@ -4,6 +4,7 @@ export const ACTION_TYPES = {
   TAB_CHANGE: "TAB_CHANGE",
   NEW_NOTE: "NEW_NOTE",
   DISPLAY_MODE_CHANGE: "DISPLAY_MODE_CHANGE",
+  NOTE_DELETED: "NOTE_DELETED",
 };
 
 const INITIAL_STATE = {
@@ -21,6 +22,8 @@ let reducerFn = (state = INITIAL_STATE, action) => {
       return { ...state, notes: [...state.notes, action.payload] };
     case ACTION_TYPES.DISPLAY_MODE_CHANGE:
       return { ...state, displayMode: action.payload };
+    case ACTION_TYPES.NOTE_DELETED:
+      return { ...state, notes: [...action.payload] };
     default:
       return state;
   }

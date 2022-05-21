@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <section className="home__container">
-      <DisplayModeSelector />
+      <DisplayModeSelector displayMode={displayMode}/>
       <section className="notes__container">
         {filteredNotes.map((note) => {
           return (
@@ -22,6 +22,7 @@ const Home = () => {
               type={displayMode}
               content={note.content}
               title={note.title}
+              id={note.id}
             />
           );
         })}

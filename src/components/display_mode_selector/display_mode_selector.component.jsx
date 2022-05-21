@@ -1,14 +1,13 @@
 import "./display_mode_selector.scss";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ACTION_TYPES } from "../../store/store";
 
 import Button from "../button/button.component";
 import { BUTTON_TYPES } from "../button/button.component";
 
-const DisplayModeSelector = () => {
+const DisplayModeSelector = ({displayMode}) => {
 const dispatch = useDispatch()
-  const currentMode = useSelector((state) => state.displayMode)
 
   const handleClick = (e) => {
     e.stopPropagation()
@@ -19,7 +18,7 @@ const dispatch = useDispatch()
   }
   return (
     <div className="home__display_mode" onClick={handleClick} >
-      <Button type={BUTTON_TYPES.DISPLAY_MODE} currentMode={currentMode} />
+      <Button type={BUTTON_TYPES.DISPLAY_MODE} currentMode={displayMode} />
     </div>
   );
 };

@@ -12,8 +12,8 @@ const Archived = () => {
 
   const filteredNotes = notes.filter((note) => note.archived);
   return (
-    <section className="archived__container">
-      <DisplayModeSelector />
+    <section className="home__container">
+      <DisplayModeSelector displayMode={displayMode} />
       <section className="notes__container">
         {filteredNotes.map((note) => {
           return (
@@ -21,6 +21,7 @@ const Archived = () => {
               key={note.id}
               type={displayMode}
               content={note.content}
+              id={note.id}
               title={note.title}
             />
           );

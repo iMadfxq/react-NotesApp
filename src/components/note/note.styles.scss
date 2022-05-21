@@ -81,6 +81,10 @@ textarea {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     padding: 6px 8px;
+    
+    div {
+      display: flex;
+    }
 
     button {
       margin: 0px 4px;
