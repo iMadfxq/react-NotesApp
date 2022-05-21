@@ -1,11 +1,33 @@
-import './archived.styles.scss'
+import "./archived.styles.scss";
 
-import DisplayModeSelector from '../../components/display_mode_selector/display_mode_selector.component'
+import Note from "../../components/note/note.component";
+
+import { useSelector } from "react-redux";
+
+import DisplayModeSelector from "../../components/display_mode_selector/display_mode_selector.component";
 
 const Archived = () => {
-  return (
-    <DisplayModeSelector />
-  )
-}
+  const displayMode = useSelector((state) => state.displayMode);
+  const notes = useSelector((state) => state.notes);
 
-export default Archived
+  const filteredNotes = notes.filter((note) => note.archived);
+  return (
+    <section className="archived__container">
+      <DisplayModeSelector />
+      <section className="notes__container">
+        {filteredNotes.map((note) => {
+          return (
+            <Note
+              key={note.id}
+              type={displayMode}
+              content={note.content}
+              title={note.title}
+            />
+          );
+        })}
+      </section>
+    </section>
+  );
+};
+
+export default Archived;

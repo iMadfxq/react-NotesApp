@@ -6,17 +6,24 @@ import Note from "../../components/note/note.component";
 import DisplayModeSelector from "../../components/display_mode_selector/display_mode_selector.component";
 
 const Home = () => {
-  const notes = useSelector((state) => state.notes)
-const displayMode = useSelector((state) => state.displayMode)
+  const displayMode = useSelector((state) => state.displayMode);
+  const notes = useSelector((state) => state.notes);
 
-  console.log(notes)
+  const filteredNotes = notes.filter((note) => note.archived === false)
+
   return (
     <section className="home__container">
       <DisplayModeSelector />
       <section className="notes__container">
-        {notes.map((note) => {
-          return <Note key={note.id} type={displayMode} content={note.content} title={note.title} />
-          
+        {filteredNotes.map((note) => {
+          return (
+            <Note
+              key={note.id}
+              type={displayMode}
+              content={note.content}
+              title={note.title}
+            />
+          );
         })}
       </section>
     </section>
