@@ -74,6 +74,10 @@ button {
   height: 50px;
   font-size: 1.7rem;
   background-color: rgb(50, 221, 237);
+
+  &:hover {
+    font-size: 2rem;
+  }
 }
 
 

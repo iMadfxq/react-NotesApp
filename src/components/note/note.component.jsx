@@ -4,8 +4,8 @@ import Button from "../button/button.component";
 import { BUTTON_TYPES } from "../button/button.component";
 
 export const NOTE_STYLES = {
-  LIST_STYLE: "LIST_STYLE",
-  SQUARE_STYLE: "SQUARE_STYLE",
+  LIST_STYLE: "display-list",
+  SQUARE_STYLE: "display-square",
 };
 
 const Note = ({ type, content, title }) => {
@@ -30,7 +30,8 @@ const Note = ({ type, content, title }) => {
       return (
         <article className="listNote">
           <div className="listNote__textarea">
-            <textarea disabled></textarea>
+            <h3>{title}</h3>
+            <textarea disabled value={content}></textarea>
           </div>
           <div className="listNote__header">
             <Button type={BUTTON_TYPES.SMALL_EDIT} />
