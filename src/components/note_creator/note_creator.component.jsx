@@ -1,5 +1,7 @@
 import "./note_creator.styles.scss";
 
+import { useNavigate } from "react-router-dom";
+
 import { ACTION_TYPES } from "../../store/store";
 import { useDispatch } from "react-redux";
 
@@ -21,6 +23,7 @@ const noteCreatorFn = (title, content) => {
 
 const NoteCreator = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   
   const handleSubmit = (e) => {
     const noteFormWrapper = document.querySelector(".wrapper");
@@ -29,6 +32,8 @@ const NoteCreator = () => {
     dispatch({ type: ACTION_TYPES.NEW_NOTE, payload: note });
     e.target.reset();
     closeModal(noteFormWrapper);
+    navigate('/')
+    dispatch({ type: ACTION_TYPES.TAB_CHANGE, payload: 'main-tab' });
   };
 
   const handleClick = (e) => {
