@@ -1,4 +1,6 @@
 import { createStore } from "redux";
+import { loadState } from "./localStorage";
+import { saveState } from "./localStorage";
 
 export const ACTION_TYPES = {
   TAB_CHANGE: "TAB_CHANGE",
@@ -8,11 +10,15 @@ export const ACTION_TYPES = {
   NOTE_ARCHIVED: "NOTE_ARCHIVED",
 };
 
-const INITIAL_STATE = {
-  currentTab: "main-tab",
-  displayMode: "display-square",
-  notes: [],
-};
+let localStorageState = loadState();
+
+const INITIAL_STATE = localStorageState
+  ? localStorageState
+  : {
+      currentTab: "main-tab",
+      displayMode: "display-square",
+      notes: [],
+    };
 
 let reducerFn = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -32,5 +38,9 @@ let reducerFn = (state = INITIAL_STATE, action) => {
 };
 
 let store = createStore(reducerFn);
+
+store.subscribe(() => {
+  saveState({ ...store.getState() });
+});
 
 export { store };
