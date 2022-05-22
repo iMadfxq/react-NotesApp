@@ -23,6 +23,7 @@ const Home = () => {
               content={note.content}
               title={note.title}
               id={note.id}
+              archived={note.archived}
             />
           );
         })}

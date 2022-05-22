@@ -12,7 +12,7 @@ export const NOTE_STYLES = {
   SQUARE_STYLE: "display-square",
 };
 
-const Note = ({ type, content, title, id }) => {
+const Note = ({ type, content, title, id, archived }) => {
   const notes = useSelector((state) => state.notes);
   const dispatch = useDispatch();
 
@@ -47,7 +47,20 @@ const Note = ({ type, content, title, id }) => {
         type: ACTION_TYPES.NOTE_ARCHIVED,
         payload: notesWithArchivedProperty,
       });
-
+    } else if (e.target.className === BUTTON_TYPES.RESTORE) {
+      let notesWithoutArchivedProperty = notes.map((note) => {
+        if (
+          note.id ==
+          Number(e.target.parentElement.dataset.id)
+        ) {
+          note.archived = false;
+        }
+        return note;
+      });
+      dispatch({
+        type: ACTION_TYPES.NOTE_ARCHIVED,
+        payload: notesWithoutArchivedProperty,
+      });
     }
   };
 
@@ -58,14 +71,21 @@ const Note = ({ type, content, title, id }) => {
           <div className="squareNote__header">
             <h3>{title}</h3>
             <div>
-              <Button type={BUTTON_TYPES.SMALL_EDIT} />
-              <Button type={BUTTON_TYPES.SMALL_ARCHIVE} />
+              {!archived ? (
+                <>
+                  <Button type={BUTTON_TYPES.SMALL_EDIT} />
+                  <Button type={BUTTON_TYPES.SMALL_ARCHIVE} />
+                </>
+              ) : (
+                <></>
+              )}
               <Button type={BUTTON_TYPES.SMALL_DELETE} />
             </div>
           </div>
           <div className="squareNote__textarea">
             <textarea value={content} disabled></textarea>
           </div>
+          {archived ? <Button type={BUTTON_TYPES.RESTORE} /> : <></>}
         </article>
       );
     case NOTE_STYLES.LIST_STYLE:
@@ -77,8 +97,14 @@ const Note = ({ type, content, title, id }) => {
           </div>
           <div className="listNote__header">
             <div>
-              <Button type={BUTTON_TYPES.SMALL_EDIT} />
-              <Button type={BUTTON_TYPES.SMALL_ARCHIVE} />
+              {archived === false ? (
+                <>
+                  <Button type={BUTTON_TYPES.SMALL_EDIT} />
+                  <Button type={BUTTON_TYPES.SMALL_ARCHIVE} />
+                </>
+              ) : (
+                <></>
+              )}
               <Button type={BUTTON_TYPES.SMALL_DELETE} />
             </div>
           </div>

@@ -16,6 +16,12 @@ textarea {
   border: 1px solid black;
   border-radius: 20px;
   user-select: none;
+  position: relative;
+
+  .RESTORE {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
 
   &__header {
     display: flex;

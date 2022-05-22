@@ -23,6 +23,7 @@ const Archived = () => {
               content={note.content}
               id={note.id}
               title={note.title}
+              archived={note.archived}
             />
           );
         })}
