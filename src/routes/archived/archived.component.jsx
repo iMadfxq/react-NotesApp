@@ -12,7 +12,7 @@ const Archived = () => {
 
   const filteredNotes = notes.filter((note) => note.archived);
   return (
-    <section className="home__container">
+    <section className="home__container archived">
       <DisplayModeSelector displayMode={displayMode} />
       <section className="notes__container">
         {filteredNotes.map((note) => {

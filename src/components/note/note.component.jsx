@@ -34,7 +34,20 @@ const Note = ({ type, content, title, id }) => {
         payload: notesWithoutDeleted,
       });
     } else if (e.target.className === BUTTON_TYPES.SMALL_ARCHIVE) {
-      console.log("archived");
+      let notesWithArchivedProperty = notes.map((note) => {
+        if (
+          note.id ==
+          Number(e.target.parentElement.parentElement.parentElement.dataset.id)
+        ) {
+          note.archived = true;
+        }
+        return note;
+      });
+      dispatch({
+        type: ACTION_TYPES.NOTE_ARCHIVED,
+        payload: notesWithArchivedProperty,
+      });
+
     }
   };
 

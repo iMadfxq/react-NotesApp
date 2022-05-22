@@ -16,14 +16,14 @@ export const BUTTON_TYPES = {
 const Button = ({ type, currentMode }) => {
   switch (type) {
     case BUTTON_TYPES.NEW_NOTE:
-      return <button className="NEW_NOTE" type="button">+ New Note</button>;
+      return <button title="Create a new note" className="NEW_NOTE" type="button">+ New Note</button>;
     case BUTTON_TYPES.DISPLAY_MODE:
       return (
         <div className="DISPLAY_MODE">
           <span>Display Mode</span>
           <div>
-            <button type="button" id="display-square" className={currentMode === 'display-square' ? 'currentMode' : ''} >⍠</button>
-            <button type="button" id="display-list" className={currentMode === 'display-list' ? 'currentMode' : ''}>⌸</button>
+            <button title="Show notes in SQUARE style" type="button" id="display-square" className={currentMode === 'display-square' ? 'currentMode' : ''} >⍠</button>
+            <button title="Show notes in LIST style" type="button" id="display-list" className={currentMode === 'display-list' ? 'currentMode' : ''}>⌸</button>
           </div>
         </div>
       );
@@ -36,11 +36,11 @@ const Button = ({ type, currentMode }) => {
     case BUTTON_TYPES.CLOSE:
       return <button className="CLOSE" type="button">&#x2715;</button>;
     case BUTTON_TYPES.SMALL_DELETE:
-      return <button className="SMALL_DELETE" type="button">🗑</button>;
+      return <button className="SMALL_DELETE" type="button" title="Delete">🗑</button>;
     case BUTTON_TYPES.SMALL_EDIT:
-      return <button className="SMALL_EDIT" type="button">✏️</button>;
+      return <button className="SMALL_EDIT" type="button" title="Edit">✏️</button>;
     case BUTTON_TYPES.SMALL_ARCHIVE:
-      return <button className="SMALL_ARCHIVE" type="button">📁</button>;
+      return <button className="SMALL_ARCHIVE" type="button" title="Archive">📁</button>;
     case BUTTON_TYPES.RESTORE_ALL:
       return <button className="RESTORE_ALL" type="button">Restore All</button>;
     default:

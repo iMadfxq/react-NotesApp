@@ -5,12 +5,12 @@ export const ACTION_TYPES = {
   NEW_NOTE: "NEW_NOTE",
   DISPLAY_MODE_CHANGE: "DISPLAY_MODE_CHANGE",
   NOTE_DELETED: "NOTE_DELETED",
+  NOTE_ARCHIVED: "NOTE_ARCHIVED",
 };
 
 const INITIAL_STATE = {
   currentTab: "main-tab",
   displayMode: "display-square",
-  creatingNote: false,
   notes: [],
 };
 
@@ -23,6 +23,8 @@ let reducerFn = (state = INITIAL_STATE, action) => {
     case ACTION_TYPES.DISPLAY_MODE_CHANGE:
       return { ...state, displayMode: action.payload };
     case ACTION_TYPES.NOTE_DELETED:
+      return { ...state, notes: [...action.payload] };
+    case ACTION_TYPES.NOTE_ARCHIVED:
       return { ...state, notes: [...action.payload] };
     default:
       return state;
