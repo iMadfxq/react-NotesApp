@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { Route, Routes } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 import './App.scss';
 
 import Navigation from './routes/navigation/navigation.component';
@@ -11,9 +13,14 @@ import Archived from './routes/archived/archived.component';
 
 
 function App() {
+  const currentTab = useSelector((state) => state.currentTab)
   const navigate = useNavigate()
   useEffect(() => {
-    navigate('/')
+    if(currentTab === 'main-tab') {
+      navigate('/')
+    } else {
+      navigate('/archived')
+    }
   }, [])
   return (
     <Routes>
