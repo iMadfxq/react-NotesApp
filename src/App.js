@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+
 import { Route, Routes } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import './App.scss';
 
@@ -8,6 +11,10 @@ import Archived from './routes/archived/archived.component';
 
 
 function App() {
+  const navigate = useNavigate()
+  useEffect(() => {
+    navigate('/')
+  }, [])
   return (
     <Routes>
       <Route path='/' element={<Navigation />}>

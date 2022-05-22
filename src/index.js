@@ -6,6 +6,7 @@ import "./index.scss";
 import { closeModal } from "./utils/open_close_MODALS";
 
 import App from "./App";
+
 import { BrowserRouter } from "react-router-dom";
 
 import { store } from "./store/store";
