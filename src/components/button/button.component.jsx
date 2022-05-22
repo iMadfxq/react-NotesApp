@@ -29,7 +29,7 @@ const Button = ({ type, currentMode }) => {
         </div>
       );
     case BUTTON_TYPES.DONE:
-      return <button className="DONE" type="submit">&#x2713; Done</button>;
+      return <button className="DONE" type="submit" title="Done">&#x2713; Done</button>;
     case BUTTON_TYPES.HOME:
       return <button className="HOME" type="button">&#x21aa; Home</button>;
     case BUTTON_TYPES.EDIT:
@@ -45,7 +45,7 @@ const Button = ({ type, currentMode }) => {
     case BUTTON_TYPES.RESTORE_ALL:
       return <button className="RESTORE_ALL" type="button">Restore All</button>;
     case BUTTON_TYPES.RESTORE:
-      return <button className="RESTORE">Restore</button>;
+      return <button className="RESTORE" title="Restore">Restore</button>;
     default:
       throw new Error("Your button had no type, or an unrecognized type.");
   }

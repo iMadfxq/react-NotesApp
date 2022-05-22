@@ -108,6 +108,7 @@ const Note = ({ type, content, title, id, archived }) => {
               <Button type={BUTTON_TYPES.SMALL_DELETE} />
             </div>
           </div>
+          {archived ? <Button type={BUTTON_TYPES.RESTORE} /> : <></>}
         </article>
       );
     default:
