@@ -15,7 +15,7 @@ const Navigation = () => {
   const noteBeingEdited = useSelector((state) => state.noteBeingEdited)
   return (
     <>
-      {notes.length ? <NoteEditor noteId={noteBeingEdited} /> : <></>}
+      {notes.length && noteBeingEdited ? <NoteEditor noteId={noteBeingEdited} /> : <></>}
       <NoteCreator />
       <header>
         <AppTitle />

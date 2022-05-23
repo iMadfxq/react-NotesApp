@@ -9,20 +9,20 @@ import { useState } from "react";
 
 const NoteEditor = ({ noteId }) => {
   const dispatch = useDispatch()
-  const notes = useSelector((state) => state.notes);
-  const note = notes.filter((n) => {
+  const actualNotes = useSelector((state) => state.notes);
+  const noteBeingEdited = actualNotes.filter((n) => {
     if (n.id == noteId) {
-      return notes;
+      return n;
     } else {
       return;
     }
   });
 
-  const [titleEdited, setTitle] = useState(String(note[0].title))
-  const [contentEdited, setContent] = useState(String(note[0].content))
+  const [titleEdited, setTitle] = useState(noteBeingEdited[0].title)
+  const [contentEdited, setContent] = useState(noteBeingEdited[0].content)
   const handleSubmit = (e) => {
     e.preventDefault()
-    const notesWithEdits = notes.map((n) => {
+    const notesWithEdits = actualNotes.map((n) => {
       if (n.id == noteId) {
         n.title = titleEdited
         n.content = contentEdited
