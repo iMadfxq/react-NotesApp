@@ -8,6 +8,8 @@ export const ACTION_TYPES = {
   DISPLAY_MODE_CHANGE: "DISPLAY_MODE_CHANGE",
   NOTE_DELETED: "NOTE_DELETED",
   NOTE_ARCHIVED: "NOTE_ARCHIVED",
+  EDITING: 'EDITING',
+  NOTE_EDITED: 'NOTE_EDITED'
 };
 
 let localStorageState = loadState();
@@ -18,6 +20,7 @@ const INITIAL_STATE = localStorageState
       currentTab: "main-tab",
       displayMode: "display-square",
       notes: [],
+      noteBeingEdited: 0,
     };
 
 let reducerFn = (state = INITIAL_STATE, action) => {
@@ -31,6 +34,10 @@ let reducerFn = (state = INITIAL_STATE, action) => {
     case ACTION_TYPES.NOTE_DELETED:
       return { ...state, notes: [...action.payload] };
     case ACTION_TYPES.NOTE_ARCHIVED:
+      return { ...state, notes: [...action.payload] };
+    case ACTION_TYPES.EDITING:
+      return {...state, noteBeingEdited: action.payload}
+    case ACTION_TYPES.NOTE_EDITED:
       return { ...state, notes: [...action.payload] };
     default:
       return state;

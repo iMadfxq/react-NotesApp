@@ -6,6 +6,7 @@ import { BUTTON_TYPES } from "../button/button.component";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { ACTION_TYPES } from "../../store/store";
+import { openModal } from "../../utils/open_close_MODALS";
 
 export const NOTE_STYLES = {
   LIST_STYLE: "display-list",
@@ -61,6 +62,13 @@ const Note = ({ type, content, title, id, archived }) => {
         type: ACTION_TYPES.NOTE_ARCHIVED,
         payload: notesWithoutArchivedProperty,
       });
+    } else if (e.target.className === BUTTON_TYPES.SMALL_EDIT) {
+      let noteEditorWrapper = document.querySelector('.editor__wrapper')
+      dispatch({
+        type: ACTION_TYPES.EDITING,
+        payload: Number(e.target.parentElement.parentElement.parentElement.dataset.id),
+      });
+      openModal(noteEditorWrapper)
     }
   };
 
