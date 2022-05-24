@@ -40,9 +40,14 @@ textarea {
       height: 2rem;
       max-width: 140px;
     }
+    div {
+      display: flex;
+      height: 40px;
+      align-items: center;
 
-    button {
-      margin: 0px 4px;
+      button {
+        margin: 0px 4px;
+      }
     }
   }
 
@@ -58,7 +63,7 @@ textarea {
       height: 100%;
       background-color: transparent;
       color: white;
-      cursor: pointer;
+      cursor: default;
       user-select: none;
     }
   }
@@ -123,7 +128,7 @@ textarea {
       height: 60px;
       background-color: transparent;
       color: white;
-      cursor: pointer;
+      cursor: default;
       user-select: none;
     }
   }
