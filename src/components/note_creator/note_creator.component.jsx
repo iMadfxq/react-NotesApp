@@ -39,7 +39,7 @@ const NoteCreator = () => {
   const handleClick = (e) => {
     e.stopPropagation();
     const noteFormWrapper = document.querySelector(".wrapper");
-    if (e.target === document.querySelector(".CLOSE")) {
+    if (e.target === document.querySelector(".wrapper .CLOSE")) {
       closeModal(noteFormWrapper);
     }
   };

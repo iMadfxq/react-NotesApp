@@ -15,6 +15,7 @@ export const NOTE_STYLES = {
 
 const Note = ({ type, content, title, id, archived }) => {
   const notes = useSelector((state) => state.notes);
+  const noteBeingEdited = useSelector(state => state.noteBeingEdited)
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
@@ -63,12 +64,11 @@ const Note = ({ type, content, title, id, archived }) => {
         payload: notesWithoutArchivedProperty,
       });
     } else if (e.target.className === BUTTON_TYPES.SMALL_EDIT) {
-      let noteEditorWrapper = document.querySelector('.editor__wrapper')
       dispatch({
         type: ACTION_TYPES.EDITING,
         payload: Number(e.target.parentElement.parentElement.parentElement.dataset.id),
       });
-      openModal(noteEditorWrapper)
+
     }
   };
 

@@ -9,7 +9,8 @@ export const ACTION_TYPES = {
   NOTE_DELETED: "NOTE_DELETED",
   NOTE_ARCHIVED: "NOTE_ARCHIVED",
   EDITING: 'EDITING',
-  NOTE_EDITED: 'NOTE_EDITED'
+  NOTE_EDITED: 'NOTE_EDITED',
+  EDITING_CANCELLED: 'EDITING_CANCELLED'
 };
 
 let localStorageState = loadState();
@@ -38,7 +39,9 @@ let reducerFn = (state = INITIAL_STATE, action) => {
     case ACTION_TYPES.EDITING:
       return {...state, noteBeingEdited: action.payload}
     case ACTION_TYPES.NOTE_EDITED:
-      return { ...state, notes: [...action.payload] };
+      return { ...state, noteBeingEdited: 0, notes: [...action.payload] };
+    case ACTION_TYPES.EDITING_CANCELLED:
+      return {...state, noteBeingEdited: 0}
     default:
       return state;
   }

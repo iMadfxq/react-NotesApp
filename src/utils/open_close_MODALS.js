@@ -1,3 +1,4 @@
+
 export const closeModal = (modalWrapper) => {
   modalWrapper.style.opacity = "0";
   setTimeout(() => {

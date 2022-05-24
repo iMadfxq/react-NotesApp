@@ -1,5 +1,5 @@
 .editor__wrapper {
-  background-color: rgba(0, 0, 0, 0.295);
+  background-color: rgba(0, 0, 0, 0.365);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,12 +17,12 @@
     align-items: center;
     flex-direction: column;
     width: 300px;
-    background-color: white;
-    height: 380px;
+    height: 340px;
     position: relative;
     border-radius: 20px;
     position: fixed;
     top: 100px;
+    background-color: black;
 
     input {
       width: 100%;
@@ -34,7 +34,7 @@
       background-color: transparent;
       outline: none;
       font-weight: 600;
-
+      color: white;
     }
 
     textarea {
@@ -43,7 +43,14 @@
       padding: 20px;
       background-color: transparent;
       font-size: 1.5rem;
-      color: black;
+      color: white;
+    }
+
+    .CLOSE {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 10px;
     }
 
     .DONE {
